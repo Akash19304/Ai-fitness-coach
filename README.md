@@ -50,7 +50,8 @@ Welcome to the AI-Based Fitness Coach! This project leverages the power of Llama
    ```
 
 7. Register User.
-8. Login with yoyr Credentials to access the Chatbot
+8. Login with your Credentials to access the Chatbot
 
+Then, Simply talk to your New Fitness Coach and stay fit and healthy!
 
 
