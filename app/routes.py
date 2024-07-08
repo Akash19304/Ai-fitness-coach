@@ -60,6 +60,8 @@ async def login_for_access_token(
     return {"access_token": access_token, "token_type": "bearer"}
 
 
+memory = []
+
 @router.post("/conversation/")
 async def read_conversation(
     query: str,
@@ -69,7 +71,7 @@ async def read_conversation(
     db_user = db.query(User).get(current_user.id)
     if not db_user:
         raise HTTPException(status_code=404, detail="User not found")
-    context = generate_context(db_user)
+    context = generate_context(db_user) + str(memory)
 
     llm = ChatGroq(
         model="llama3-8b-8192",
@@ -84,5 +86,7 @@ async def read_conversation(
     chain = prompt | llm | StrOutputParser()
 
     response = chain.invoke({"context": context, "question": query})
+
+    memory.append({"Human_Query": query, "Coach_Response": response})
 
     return {"response": response}
