@@ -1,4 +1,3 @@
-# Ai-fitness-coach
 # AI-Based Fitness Coach
 
 Welcome to the AI-Based Fitness Coach! This project leverages the power of Llama3 and FastAPI to provide personalized fitness coaching experiences. Each user has a unique account to ensure a tailored experience based on individual goals and progress.
